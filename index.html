@@ -7,10 +7,40 @@
     <title>Document</title>
 </head>
 
-<body>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+<form onsubmit="return false;"
+    style="max-width: 400px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+    <h2 style="text-align: center;">Login Form</h2>
+
+    <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email:</label>
+    <input type="email" id="email" name="email" required
+        style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+
+    <label for="password" style="display: block; margin-bottom: 5px; font-weight: bold;">Password:</label>
+    <input type="password" id="password" name="password" required
+        style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+
+    <button type="button" onclick="handleLogin()"
+        style="width: 100%; padding: 12px; font-size: 16px; cursor: pointer; background-color: #FF69B4; color: white; border: none; border-radius: 5px; font-weight: bold;">Login</button>
+</form>
+
+<div id="output"
+    style="max-width: 400px; margin: 20px auto; padding: 15px; background-color: #f0f0f0; border-radius: 5px; display: none;">
+    <p id="emailOutput" style="margin: 5px 0;"></p>
+    <p id="passwordOutput" style="margin: 5px 0;"></p>
+</div>
+
+<script>
+    function handleLogin() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (email && password) {
+            document.getElementById('emailOutput').textContent = 'Email: ' + email;
+            document.getElementById('passwordOutput').textContent = 'Password: ' + password;
+            document.getElementById('output').style.display = 'block';
+        }
+    }
+</script>
 </body>
 
 </html>
